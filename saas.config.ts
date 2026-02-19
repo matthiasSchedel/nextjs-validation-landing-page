@@ -66,7 +66,7 @@ export const saasConfig: SaasConfig = {
     description:
       "Route, filter, and replay webhook events across all your tools without writing glue code.",
     url: "https://flowsync.app",
-    ogImage: "/images/og-flowsync.png",
+    ogImage: "/images/og-flowsync.svg",
     twitterHandle: "@flowsynchq"
   },
   hero: {
