@@ -20,12 +20,9 @@ Use this design source when implementing or adjusting variants:
 
 - `/templates/minimal-mobile-light` (implemented one-pager)
 - `/templates/classic-saas` (implemented multi-section template)
-- `/templates/figma-example-03` (implemented one-pager)
-- `/templates/figma-example-04` (implemented one-pager)
-- `/templates/figma-example-05` (implemented one-pager)
-- `/templates/figma-example-06` (implemented one-pager)
-- `/templates/figma-example-07` (implemented one-pager)
-- `/templates/figma-example-08` (implemented one-pager)
+- `/templates/figma-example-01` ... `/templates/figma-example-20` (all implemented)
+- `/templates/figma-example-03` ... `/templates/figma-example-08` use custom coded one-pagers
+- Remaining Figma examples render responsive reference exports from the source file
 
 Use `/` as a simple route index, then open `/templates` to pick a template and iterate from there.
 
