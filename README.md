@@ -19,7 +19,14 @@ Use this design source when implementing or adjusting variants:
 
 - `/templates/minimal-mobile-light` (implemented one-pager)
 - `/templates/classic-saas` (implemented multi-section template)
-- `/templates/figma-example-03` to `/templates/figma-example-08` (scaffolded placeholders)
+- `/templates/figma-example-03` (implemented one-pager)
+- `/templates/figma-example-04` (implemented one-pager)
+- `/templates/figma-example-05` (implemented one-pager)
+- `/templates/figma-example-06` (implemented one-pager)
+- `/templates/figma-example-07` (implemented one-pager)
+- `/templates/figma-example-08` (implemented one-pager)
+
+Use `/` as a gallery index to pick a template and iterate from there.
 
 ## Configure content/theme
 
@@ -72,3 +79,4 @@ Before production deployment, add the following env vars in Vercel Project Setti
 2. Create a component in `src/components/templates/`.
 3. Wire it in `src/app/templates/[slug]/page.tsx`.
 4. Keep lead capture posting to `/api/waitlist`.
+5. Validate visual direction against the Figma reference URL above before committing.
