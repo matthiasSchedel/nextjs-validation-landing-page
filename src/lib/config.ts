@@ -75,20 +75,12 @@ function validateConfig(input: SaasConfig): SaasConfig {
   const resendApiKey = process.env.RESEND_API_KEY ?? input.integrations.resendApiKey;
   const resendAudienceId = process.env.RESEND_AUDIENCE_ID ?? input.integrations.resendAudienceId;
 
-  if (!resendApiKey.trim()) {
-    throw new Error("Config validation failed: RESEND_API_KEY not set.");
-  }
-
-  if (!resendAudienceId.trim()) {
-    throw new Error("Config validation failed: RESEND_AUDIENCE_ID not set.");
-  }
-
   return {
     ...input,
     integrations: {
       ...input.integrations,
-      resendApiKey,
-      resendAudienceId
+      resendApiKey: resendApiKey.trim(),
+      resendAudienceId: resendAudienceId.trim()
     },
     theme: {
       ...input.theme,

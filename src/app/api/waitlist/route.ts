@@ -40,6 +40,10 @@ function getSenderDomain(url: string): string {
 }
 
 export async function POST(request: Request): Promise<NextResponse> {
+  if (!config.integrations.resendApiKey || !config.integrations.resendAudienceId) {
+    return NextResponse.json({ error: "Waitlist integration is not configured" }, { status: 503 });
+  }
+
   let body: unknown;
 
   try {

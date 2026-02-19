@@ -10,8 +10,8 @@ export function FigmaExample06Template(): JSX.Element {
   const topQuote = config.socialProof?.quotes[0];
 
   return (
-    <main className="min-h-screen bg-[#f4f6f8] text-[#0c111d]">
-      <header className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-6">
+    <main className="min-h-screen overflow-x-hidden bg-[#f4f6f8] text-[#0c111d]">
+      <header className="mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-3 px-4 py-5 sm:px-6 sm:py-6">
         <Link href="/" className="text-lg font-semibold">
           {config.meta.title}
         </Link>
@@ -20,8 +20,8 @@ export function FigmaExample06Template(): JSX.Element {
         </a>
       </header>
 
-      <section className="mx-auto grid w-full max-w-6xl gap-6 px-6 pb-16 pt-4 lg:grid-cols-[0.75fr_1.25fr]">
-        <aside className="rounded-3xl border border-[#dde2ea] bg-white p-6 shadow-sm">
+      <section className="mx-auto grid w-full max-w-6xl gap-6 px-4 pb-16 pt-4 sm:px-6 lg:grid-cols-[0.75fr_1.25fr]">
+        <aside className="order-2 min-w-0 rounded-3xl border border-[#dde2ea] bg-white p-5 shadow-sm sm:p-6 lg:order-1">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#4f5f8c]">Current phase</p>
           <p className="mt-2 text-4xl font-semibold text-[#1a2544]">0{config.framework.phase}</p>
           <p className="mt-2 text-sm text-[#58637a]">{config.framework.buyerPersona}</p>
@@ -46,14 +46,14 @@ export function FigmaExample06Template(): JSX.Element {
           ) : null}
         </aside>
 
-        <div className="rounded-3xl border border-[#d8dee8] bg-white p-6 shadow-[0_28px_70px_rgba(15,23,42,0.12)] md:p-8">
+        <div className="order-1 min-w-0 rounded-3xl border border-[#d8dee8] bg-white p-5 shadow-[0_28px_70px_rgba(15,23,42,0.12)] sm:p-6 md:p-8 lg:order-2">
           <p className="inline-flex rounded-full border border-[#dce2ee] bg-[#f7f9fd] px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#4f5f8c]">
             {config.hero.badge ?? "Soon"}
           </p>
-          <h1 className="mt-6 max-w-4xl text-4xl font-semibold tracking-[-0.04em] text-[#101528] md:text-[3.85rem] md:leading-[1.03]">
+          <h1 className="mt-6 max-w-4xl text-[clamp(2.05rem,9vw,3.85rem)] font-semibold tracking-[-0.04em] text-[#101528] md:leading-[1.03]">
             {config.hero.headline}
           </h1>
-          <p className="mt-5 max-w-3xl text-lg text-[#576077] md:text-xl">{config.hero.subheadline}</p>
+          <p className="mt-5 max-w-3xl text-base text-[#576077] sm:text-lg md:text-xl">{config.hero.subheadline}</p>
 
           <div id="waitlist" className="mt-8 max-w-xl">
             <TemplateInlineWaitlistForm

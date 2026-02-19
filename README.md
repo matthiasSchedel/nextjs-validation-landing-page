@@ -4,7 +4,8 @@ Config-driven, self-hostable SaaS landing page template built with Next.js 14.
 
 ## What it does
 
-- Renders a template gallery at `/`
+- Renders a simple route index at `/`
+- Renders a template gallery at `/templates`
 - Renders landing variants at `/templates/[slug]`
 - Captures waitlist emails via Resend (`/api/waitlist`)
 - Generates framework stubs in `framework/`
@@ -26,7 +27,7 @@ Use this design source when implementing or adjusting variants:
 - `/templates/figma-example-07` (implemented one-pager)
 - `/templates/figma-example-08` (implemented one-pager)
 
-Use `/` as a gallery index to pick a template and iterate from there.
+Use `/` as a simple route index, then open `/templates` to pick a template and iterate from there.
 
 ## Configure content/theme
 
@@ -38,7 +39,7 @@ Create local env file:
 cp .env.local.example .env.local
 ```
 
-Required env vars:
+Required env vars for waitlist API:
 
 - `RESEND_API_KEY`
 - `RESEND_AUDIENCE_ID`

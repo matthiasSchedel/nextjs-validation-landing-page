@@ -18,7 +18,7 @@ function signedUpText(): string {
 
 export function MinimalMobileLightTemplate(): JSX.Element {
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#f3f4f7] text-[#0f172a]">
+    <main className="relative min-h-screen overflow-x-hidden bg-[#f3f4f7] text-[#0f172a]">
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute -left-52 top-[-8rem] h-[32rem] w-[32rem] rounded-full bg-white/80 blur-3xl" />
         <div className="absolute -right-44 top-[-5rem] h-[24rem] w-[24rem] rounded-full bg-white/70 blur-3xl" />
@@ -26,7 +26,7 @@ export function MinimalMobileLightTemplate(): JSX.Element {
         <div className="absolute -bottom-36 -right-16 h-[20rem] w-[20rem] rounded-full bg-white/65 blur-3xl" />
       </div>
 
-      <header className="relative z-10 mx-auto flex w-full max-w-[1300px] items-center justify-between px-5 py-5 md:px-10 md:py-6">
+      <header className="relative z-10 mx-auto flex w-full max-w-[1300px] flex-wrap items-center justify-between gap-3 px-4 py-5 sm:px-6 md:px-10 md:py-6">
         <Link href="/" className="inline-flex items-center gap-2" aria-label={`${config.meta.title} gallery`}>
           <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-[#d9deea] bg-white text-sm font-semibold shadow-[0_8px_18px_rgba(15,23,42,0.08)]">
             ✓
@@ -44,9 +44,9 @@ export function MinimalMobileLightTemplate(): JSX.Element {
         </div>
       </header>
 
-      <section className="relative z-10 mx-auto grid min-h-[calc(100vh-104px)] w-full max-w-[1300px] items-center gap-10 px-6 pb-14 pt-8 md:grid-cols-2 md:gap-8 md:px-10 md:pb-24 md:pt-0">
-        <div className="order-2 hidden justify-center md:order-1 md:flex">
-          <div className="w-full max-w-[29rem]">
+      <section className="relative z-10 mx-auto grid w-full max-w-[1300px] items-center gap-8 px-4 pb-14 pt-6 sm:px-6 md:min-h-[calc(100vh-104px)] md:grid-cols-2 md:gap-8 md:px-10 md:pb-24 md:pt-0">
+        <div className="order-2 flex justify-center md:order-1">
+          <div className="w-full max-w-[16rem] sm:max-w-[20rem] md:max-w-[29rem]">
             <Image
               src="/images/templates/minimal-mobile-phone.svg"
               alt="Mobile analytics preview"
@@ -63,10 +63,10 @@ export function MinimalMobileLightTemplate(): JSX.Element {
           <p className="inline-flex rounded-full border border-[#dfe5f4] bg-white/90 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#5B87FF]">
             {config.hero.badge ? config.hero.badge : "Coming soon"}
           </p>
-          <h1 className="mt-6 max-w-xl text-[2.2rem] font-medium leading-[1.05] tracking-[-0.03em] text-[#0B1020] md:text-[4.1rem]">
+          <h1 className="mt-6 max-w-xl text-[clamp(2.05rem,9vw,4.1rem)] font-medium leading-[1.05] tracking-[-0.03em] text-[#0B1020]">
             {config.hero.headline}
           </h1>
-          <p className="mt-5 max-w-xl text-lg leading-relaxed text-[#5f6473] md:text-[1.75rem] md:leading-[1.35]">
+          <p className="mt-5 max-w-xl text-[1.1rem] leading-relaxed text-[#5f6473] md:text-[1.75rem] md:leading-[1.35]">
             {config.hero.subheadline}
           </p>
 
@@ -74,7 +74,7 @@ export function MinimalMobileLightTemplate(): JSX.Element {
             <MinimalMobileLightWaitlistForm />
           </div>
 
-          <div className="mt-5 flex items-center gap-4 text-[#656b7a]">
+          <div className="mt-5 flex flex-wrap items-center gap-4 text-[#656b7a]">
             <div className="flex -space-x-2">
               {socialAvatars.map((avatar) => (
                 <Image

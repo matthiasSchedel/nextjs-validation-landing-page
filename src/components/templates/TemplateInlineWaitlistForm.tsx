@@ -39,20 +39,20 @@ const MODE_STYLES: Record<WaitlistFormMode, WaitlistModeStyles> = {
     error: "mt-2 text-sm text-[#B42318]"
   },
   card: {
-    wrapper: "flex flex-col gap-3 sm:flex-row",
+    wrapper: "flex flex-col gap-3 sm:flex-row sm:items-center",
     input:
       "h-12 w-full rounded-xl border border-border bg-white px-4 text-sm text-foreground outline-none transition placeholder:text-foreground/45 focus:border-primary focus:ring-2 focus:ring-primary/20",
     button:
-      "inline-flex h-12 items-center justify-center rounded-xl bg-primary px-5 text-sm font-semibold text-primary-foreground transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-70",
+      "inline-flex h-12 w-full items-center justify-center rounded-xl bg-primary px-5 text-sm font-semibold text-primary-foreground transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto",
     success: "rounded-xl border border-primary/30 bg-primary/10 px-4 py-3 text-sm font-medium text-primary",
     error: "mt-2 text-sm text-rose-600"
   },
   dark: {
-    wrapper: "flex flex-col gap-3 sm:flex-row",
+    wrapper: "flex flex-col gap-3 sm:flex-row sm:items-center",
     input:
       "h-12 w-full rounded-xl border border-white/15 bg-white/5 px-4 text-sm text-white outline-none transition placeholder:text-white/45 focus:border-primary focus:ring-2 focus:ring-primary/30",
     button:
-      "inline-flex h-12 items-center justify-center rounded-xl bg-white px-5 text-sm font-semibold text-[#111827] transition hover:bg-white/90 disabled:cursor-not-allowed disabled:opacity-70",
+      "inline-flex h-12 w-full items-center justify-center rounded-xl bg-white px-5 text-sm font-semibold text-[#111827] transition hover:bg-white/90 disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto",
     success: "rounded-xl border border-emerald-300/40 bg-emerald-300/15 px-4 py-3 text-sm font-medium text-emerald-100",
     error: "mt-2 text-sm text-rose-300"
   }
