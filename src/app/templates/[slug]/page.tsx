@@ -4,6 +4,7 @@ import { ClassicSaasTemplate } from "@/components/templates/ClassicSaasTemplate"
 import { FigmaExample03Template } from "@/components/templates/FigmaExample03Template";
 import { FigmaExample04Template } from "@/components/templates/FigmaExample04Template";
 import { FigmaExample05Template } from "@/components/templates/FigmaExample05Template";
+import { FigmaExample06Template } from "@/components/templates/FigmaExample06Template";
 import { MinimalMobileLightTemplate } from "@/components/templates/MinimalMobileLightTemplate";
 import { TemplatePlaceholder } from "@/components/templates/TemplatePlaceholder";
 import { getTemplateVariant, templateVariants } from "@/lib/template-catalog";
@@ -43,6 +44,10 @@ export default function TemplatePage({ params }: TemplatePageProps): JSX.Element
 
   if (variant.slug === "figma-example-05") {
     return <FigmaExample05Template />;
+  }
+
+  if (variant.slug === "figma-example-06") {
+    return <FigmaExample06Template />;
   }
 
   return <TemplatePlaceholder variant={variant} />;
