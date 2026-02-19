@@ -1,7 +1,7 @@
 import { mkdir, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 
-import { fal } from "@fal-ai/serverless-client";
+import { config as falConfig, subscribe } from "@fal-ai/serverless-client";
 
 interface CliOptions {
   prompt: string;
@@ -73,15 +73,15 @@ async function run(): Promise<void> {
 
   const options = parseArgs(process.argv.slice(2));
 
-  fal.config({ credentials: falKey });
+  falConfig({ credentials: falKey });
 
-  const rawResult: unknown = await fal.subscribe(options.model, {
+  const rawResult: unknown = await subscribe(options.model, {
     input: {
       prompt: options.prompt
     }
   });
 
-  const payload = isObjectRecord(rawResult) ? rawResult.data : null;
+  const payload = isObjectRecord(rawResult) ? rawResult : null;
   const imageUrl = firstImageUrl(payload);
   if (!imageUrl) {
     throw new Error("Image generation succeeded but no image URL was returned.");

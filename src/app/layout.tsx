@@ -14,32 +14,31 @@ import {
 import { config } from "@/lib/config";
 import "@/styles/globals.css";
 
-interface LoadedFont {
-  className: string;
-}
-
-const fontLoaders: Record<string, () => LoadedFont> = {
-  inter: () => Inter({ subsets: ["latin"], display: "swap" }),
-  manrope: () => Manrope({ subsets: ["latin"], display: "swap" }),
-  poppins: () => Poppins({ subsets: ["latin"], weight: ["400", "500", "600", "700"], display: "swap" }),
-  roboto: () => Roboto({ subsets: ["latin"], weight: ["400", "500", "700"], display: "swap" }),
-  "open sans": () => Open_Sans({ subsets: ["latin"], display: "swap" }),
-  lato: () => Lato({ subsets: ["latin"], weight: ["400", "700"], display: "swap" }),
-  montserrat: () => Montserrat({ subsets: ["latin"], display: "swap" }),
-  nunito: () => Nunito({ subsets: ["latin"], display: "swap" })
-};
+const interFont = Inter({ subsets: ["latin"], display: "swap" });
+const manropeFont = Manrope({ subsets: ["latin"], display: "swap" });
+const poppinsFont = Poppins({ subsets: ["latin"], weight: ["400", "500", "600", "700"], display: "swap" });
+const robotoFont = Roboto({ subsets: ["latin"], weight: ["400", "500", "700"], display: "swap" });
+const openSansFont = Open_Sans({ subsets: ["latin"], display: "swap" });
+const latoFont = Lato({ subsets: ["latin"], weight: ["400", "700"], display: "swap" });
+const montserratFont = Montserrat({ subsets: ["latin"], display: "swap" });
+const nunitoFont = Nunito({ subsets: ["latin"], display: "swap" });
 
 function normalizeFontName(input: string): string {
   return input.trim().toLowerCase().replace(/[_-]+/g, " ").replace(/\s+/g, " ");
 }
 
-function getThemeFont(fontName: string): LoadedFont {
-  const normalized = normalizeFontName(fontName);
-  const selectedLoader = fontLoaders[normalized] ?? fontLoaders.inter;
-  return selectedLoader();
-}
+const fontClassMap: Record<string, string> = {
+  inter: interFont.className,
+  manrope: manropeFont.className,
+  poppins: poppinsFont.className,
+  roboto: robotoFont.className,
+  "open sans": openSansFont.className,
+  lato: latoFont.className,
+  montserrat: montserratFont.className,
+  nunito: nunitoFont.className
+};
 
-const themeFont = getThemeFont(config.theme.font);
+const themeFontClass = fontClassMap[normalizeFontName(config.theme.font)] ?? interFont.className;
 
 const siteDomain = new URL(config.meta.url);
 
@@ -85,7 +84,7 @@ const themeVariables: ThemeVariables = {
 export default function RootLayout({ children }: { children: ReactNode }): JSX.Element {
   return (
     <html lang="en" data-theme={config.theme.mode} style={themeVariables}>
-      <body className={`${themeFont.className} bg-background text-foreground antialiased`}>{children}</body>
+      <body className={`${themeFontClass} bg-background text-foreground antialiased`}>{children}</body>
     </html>
   );
 }
