@@ -1,0 +1,30 @@
+{
+  "name": "nextjs-validation-landing-page",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "deploy": "vercel --prod",
+    "generate:images": "tsx scripts/generate-images.ts",
+    "new:project": "tsx scripts/new-project.ts"
+  },
+  "dependencies": {
+    "@fal-ai/serverless-client": "^0.14.1",
+    "next": "14.2.32",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "resend": "^3.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.19",
+    "@types/react": "^18.3.18",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.5.1",
+    "tailwindcss": "^3.4.17",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3"
+  }
+}
