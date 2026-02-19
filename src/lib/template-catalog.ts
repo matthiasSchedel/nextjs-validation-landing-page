@@ -13,7 +13,7 @@ export const templateVariants: TemplateVariant[] = [
     slug: "minimal-mobile-light",
     name: "Minimal Mobile Light",
     description: "Clean one-pager with floating phone mockup and inline waitlist capture.",
-    implemented: false
+    implemented: true
   },
   {
     slug: "classic-saas",

@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 
 import { ClassicSaasTemplate } from "@/components/templates/ClassicSaasTemplate";
+import { MinimalMobileLightTemplate } from "@/components/templates/MinimalMobileLightTemplate";
 import { TemplatePlaceholder } from "@/components/templates/TemplatePlaceholder";
 import { getTemplateVariant, templateVariants } from "@/lib/template-catalog";
 
@@ -19,6 +20,10 @@ export default function TemplatePage({ params }: TemplatePageProps): JSX.Element
 
   if (!variant) {
     notFound();
+  }
+
+  if (variant.slug === "minimal-mobile-light") {
+    return <MinimalMobileLightTemplate />;
   }
 
   if (variant.slug === "classic-saas") {
