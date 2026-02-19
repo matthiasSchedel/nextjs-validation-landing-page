@@ -6,6 +6,7 @@ import { FigmaExample04Template } from "@/components/templates/FigmaExample04Tem
 import { FigmaExample05Template } from "@/components/templates/FigmaExample05Template";
 import { FigmaExample06Template } from "@/components/templates/FigmaExample06Template";
 import { FigmaExample07Template } from "@/components/templates/FigmaExample07Template";
+import { FigmaExample08Template } from "@/components/templates/FigmaExample08Template";
 import { MinimalMobileLightTemplate } from "@/components/templates/MinimalMobileLightTemplate";
 import { TemplatePlaceholder } from "@/components/templates/TemplatePlaceholder";
 import { getTemplateVariant, templateVariants } from "@/lib/template-catalog";
@@ -53,6 +54,10 @@ export default function TemplatePage({ params }: TemplatePageProps): JSX.Element
 
   if (variant.slug === "figma-example-07") {
     return <FigmaExample07Template />;
+  }
+
+  if (variant.slug === "figma-example-08") {
+    return <FigmaExample08Template />;
   }
 
   return <TemplatePlaceholder variant={variant} />;
