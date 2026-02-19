@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 
 import { ClassicSaasTemplate } from "@/components/templates/ClassicSaasTemplate";
 import { FigmaExample03Template } from "@/components/templates/FigmaExample03Template";
+import { FigmaExample04Template } from "@/components/templates/FigmaExample04Template";
 import { MinimalMobileLightTemplate } from "@/components/templates/MinimalMobileLightTemplate";
 import { TemplatePlaceholder } from "@/components/templates/TemplatePlaceholder";
 import { getTemplateVariant, templateVariants } from "@/lib/template-catalog";
@@ -33,6 +34,10 @@ export default function TemplatePage({ params }: TemplatePageProps): JSX.Element
 
   if (variant.slug === "figma-example-03") {
     return <FigmaExample03Template />;
+  }
+
+  if (variant.slug === "figma-example-04") {
+    return <FigmaExample04Template />;
   }
 
   return <TemplatePlaceholder variant={variant} />;

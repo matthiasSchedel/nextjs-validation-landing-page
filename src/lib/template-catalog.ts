@@ -30,8 +30,8 @@ export const templateVariants: TemplateVariant[] = [
   {
     slug: "figma-example-04",
     name: "Figma Example 04",
-    description: "Placeholder route ready for implementation.",
-    implemented: false
+    description: "Dark split-layout one-pager with dense feature chips and high-contrast CTA.",
+    implemented: true
   },
   {
     slug: "figma-example-05",
