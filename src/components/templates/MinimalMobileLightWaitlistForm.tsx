@@ -49,7 +49,7 @@ export function MinimalMobileLightWaitlistForm(): JSX.Element {
   return (
     <div>
       {success ? (
-        <p className="rounded-2xl border border-[#b9cdfd] bg-[#f2f6ff] px-5 py-4 text-sm font-medium text-[#3b5bc8]">
+        <p className="rounded-full border border-[#c8d7ff] bg-[#f4f8ff] px-5 py-4 text-sm font-medium text-[#3b5bc8]">
           You&apos;re on the list.
         </p>
       ) : (
@@ -64,13 +64,13 @@ export function MinimalMobileLightWaitlistForm(): JSX.Element {
             value={email}
             onChange={(event) => setEmail(event.target.value)}
             placeholder="jane@example.com"
-            className="h-14 w-full rounded-full border border-[#e5e8ef] bg-[#f3f4f6] px-6 pr-20 text-base text-[#111827] outline-none transition focus:border-[#7a9bff]"
+            className="h-14 w-full rounded-full border border-[#e6e9f0] bg-[#f1f2f4] px-6 pr-20 text-base text-[#111827] outline-none transition placeholder:text-[#adb3bf] focus:border-[#7a9bff] focus:bg-white"
           />
           <button
             type="submit"
             disabled={isSubmitting}
             aria-label="Join waitlist"
-            className="absolute right-1 top-1 inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#5B87FF] text-xl text-white shadow-[0_10px_20px_rgba(91,135,255,0.3)] transition hover:brightness-95 disabled:cursor-not-allowed disabled:opacity-70"
+            className="absolute right-[6px] top-[6px] inline-flex h-[42px] w-[42px] items-center justify-center rounded-full border border-[#8eabff] bg-[#5B87FF] text-xl text-white shadow-[0_10px_22px_rgba(91,135,255,0.32)] transition hover:brightness-95 disabled:cursor-not-allowed disabled:opacity-70"
           >
             {isSubmitting ? "…" : "→"}
           </button>
