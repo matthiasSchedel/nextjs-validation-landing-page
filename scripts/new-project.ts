@@ -13,17 +13,15 @@ function rulesContent(): string {
   return `# Rules\n\n- Only one active product in Phase 2+ at a time\n- No feature work before Phase 1 passes\n- No quality work before Phase 3 passes\n- Every phase has kill criteria\n- If kill criteria met, archive project\n`;
 }
 
-const emptyTemplate = `<!-- Fill this file from real user/customer inputs -->\n`;
-
 async function run(): Promise<void> {
   await mkdir(frameworkDir, { recursive: true });
 
   await Promise.all([
     writeFile(resolve(frameworkDir, "distribution.md"), distributionContent()),
     writeFile(resolve(frameworkDir, "rules.md"), rulesContent()),
-    writeFile(resolve(frameworkDir, "problem.md"), `# Problem\n\n${emptyTemplate}`),
-    writeFile(resolve(frameworkDir, "buyer.md"), `# Buyer\n\n${emptyTemplate}`),
-    writeFile(resolve(frameworkDir, "quotes.md"), `# Quotes\n\n${emptyTemplate}`)
+    writeFile(resolve(frameworkDir, "problem.md"), "<!-- # Problem -->\n"),
+    writeFile(resolve(frameworkDir, "buyer.md"), "<!-- # Buyer -->\n"),
+    writeFile(resolve(frameworkDir, "quotes.md"), "<!-- # Quotes -->\n")
   ]);
 
   process.stdout.write("Framework files generated from saas.config.ts\n");

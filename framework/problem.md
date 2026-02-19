@@ -1,3 +1,1 @@
-# Problem
-
-<!-- Fill this file from real user/customer inputs -->
+<!-- # Problem -->
