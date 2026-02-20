@@ -1,13 +1,14 @@
 import Link from "next/link";
 
 import { config } from "@/lib/config";
+import { getPrimaryPricingTier, getSecondaryPricingTier, getTemplateFeatures } from "@/lib/template-data";
 
 import { TemplateInlineWaitlistForm } from "./TemplateInlineWaitlistForm";
 
 export function FigmaExample05Template(): JSX.Element {
-  const topFeatures = config.features.slice(0, 3);
-  const primaryTier = config.pricing.tiers.find((tier) => tier.highlighted) ?? config.pricing.tiers[0];
-  const secondaryTier = config.pricing.tiers.find((tier) => tier !== primaryTier) ?? config.pricing.tiers[0];
+  const topFeatures = getTemplateFeatures(3);
+  const primaryTier = getPrimaryPricingTier();
+  const secondaryTier = getSecondaryPricingTier(primaryTier);
 
   return (
     <main className="min-h-screen overflow-x-hidden bg-[radial-gradient(circle_at_0%_0%,rgba(15,118,110,0.16),transparent_40%),radial-gradient(circle_at_100%_10%,rgba(91,135,255,0.2),transparent_36%),#fbfcff] text-[#0f172a]">

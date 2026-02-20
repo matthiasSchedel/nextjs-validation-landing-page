@@ -2,13 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { config } from "@/lib/config";
+import { getTemplateFeatures, getTemplateQuote, getTemplateStats } from "@/lib/template-data";
 
 import { TemplateInlineWaitlistForm } from "./TemplateInlineWaitlistForm";
 
 export function FigmaExample04Template(): JSX.Element {
-  const topFeatures = config.features.slice(0, 4);
-  const leadQuote = config.socialProof?.quotes[0];
-  const topStat = config.socialProof?.stats[0];
+  const topFeatures = getTemplateFeatures(4);
+  const leadQuote = getTemplateQuote(0);
+  const topStat = getTemplateStats(1)[0];
 
   return (
     <main className="min-h-screen overflow-x-hidden bg-[radial-gradient(circle_at_20%_10%,rgba(70,154,255,0.22),transparent_32%),radial-gradient(circle_at_90%_20%,rgba(15,118,110,0.22),transparent_36%),#060A17] text-white">

@@ -13,7 +13,7 @@ export interface TemplateVariant {
 const figmaTemplateVariants: TemplateVariant[] = figmaReferenceVariants.map((variant) => ({
   slug: variant.slug,
   name: variant.name,
-  description: `${variant.figmaName} reference export with responsive scaling.`,
+  description: `${variant.figmaName} as a real coded one-pager variant.`,
   implemented: true
 }));
 

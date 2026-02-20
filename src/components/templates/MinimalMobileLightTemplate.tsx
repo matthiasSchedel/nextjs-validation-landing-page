@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { config } from "@/lib/config";
+import { getSignedUpText } from "@/lib/template-data";
 
 import { MinimalMobileLightWaitlistForm } from "./MinimalMobileLightWaitlistForm";
 
@@ -10,11 +11,6 @@ const socialAvatars = [
   "/images/templates/avatar-02.svg",
   "/images/templates/avatar-03.svg"
 ];
-
-function signedUpText(): string {
-  const firstStat = config.socialProof?.stats[0]?.value;
-  return firstStat ? `${firstStat} people signed up` : "4.5k people signed up";
-}
 
 export function MinimalMobileLightTemplate(): JSX.Element {
   return (
@@ -87,7 +83,7 @@ export function MinimalMobileLightTemplate(): JSX.Element {
                 />
               ))}
             </div>
-            <p className="text-base md:text-xl">{signedUpText()}</p>
+            <p className="text-base md:text-xl">{getSignedUpText()}</p>
           </div>
         </div>
       </section>

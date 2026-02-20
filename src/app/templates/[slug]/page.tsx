@@ -23,6 +23,17 @@ export function generateStaticParams(): Array<{ slug: string }> {
   return templateVariants.map((variant) => ({ slug: variant.slug }));
 }
 
+const DIRECT_TEMPLATE_RENDERERS: Record<string, () => JSX.Element> = {
+  "minimal-mobile-light": () => <MinimalMobileLightTemplate />,
+  "classic-saas": () => <ClassicSaasTemplate />,
+  "figma-example-03": () => <FigmaExample03Template />,
+  "figma-example-04": () => <FigmaExample04Template />,
+  "figma-example-05": () => <FigmaExample05Template />,
+  "figma-example-06": () => <FigmaExample06Template />,
+  "figma-example-07": () => <FigmaExample07Template />,
+  "figma-example-08": () => <FigmaExample08Template />
+};
+
 export default function TemplatePage({ params }: TemplatePageProps): JSX.Element {
   const variant = getTemplateVariant(params.slug);
 
@@ -30,36 +41,9 @@ export default function TemplatePage({ params }: TemplatePageProps): JSX.Element
     notFound();
   }
 
-  if (variant.slug === "minimal-mobile-light") {
-    return <MinimalMobileLightTemplate />;
-  }
-
-  if (variant.slug === "classic-saas") {
-    return <ClassicSaasTemplate />;
-  }
-
-  if (variant.slug === "figma-example-03") {
-    return <FigmaExample03Template />;
-  }
-
-  if (variant.slug === "figma-example-04") {
-    return <FigmaExample04Template />;
-  }
-
-  if (variant.slug === "figma-example-05") {
-    return <FigmaExample05Template />;
-  }
-
-  if (variant.slug === "figma-example-06") {
-    return <FigmaExample06Template />;
-  }
-
-  if (variant.slug === "figma-example-07") {
-    return <FigmaExample07Template />;
-  }
-
-  if (variant.slug === "figma-example-08") {
-    return <FigmaExample08Template />;
+  const renderDirectTemplate = DIRECT_TEMPLATE_RENDERERS[variant.slug];
+  if (renderDirectTemplate) {
+    return renderDirectTemplate();
   }
 
   if (isFigmaReferenceSlug(variant.slug)) {

@@ -2,13 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { config } from "@/lib/config";
+import { getPrimaryPricingTier, getTemplateFeatures, getTemplateStats } from "@/lib/template-data";
 
 import { TemplateInlineWaitlistForm } from "./TemplateInlineWaitlistForm";
 
 export function FigmaExample03Template(): JSX.Element {
-  const topFeatures = config.features.slice(0, 3);
-  const topStats = config.socialProof?.stats.slice(0, 3) ?? [];
-  const highlightedTier = config.pricing.tiers.find((tier) => tier.highlighted) ?? config.pricing.tiers[0];
+  const topFeatures = getTemplateFeatures(3);
+  const topStats = getTemplateStats(3);
+  const highlightedTier = getPrimaryPricingTier();
 
   return (
     <main className="min-h-screen overflow-x-hidden bg-[radial-gradient(90%_90%_at_100%_0%,rgba(91,135,255,0.18),transparent_60%),radial-gradient(70%_70%_at_0%_100%,rgba(15,118,110,0.12),transparent_60%),#f7f9fc] text-[#0f172a]">

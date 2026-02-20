@@ -2,12 +2,13 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { config } from "@/lib/config";
+import { getTemplateQuote, getTemplateStats } from "@/lib/template-data";
 
 import { TemplateInlineWaitlistForm } from "./TemplateInlineWaitlistForm";
 
 export function FigmaExample06Template(): JSX.Element {
-  const topStats = config.socialProof?.stats.slice(0, 3) ?? [];
-  const topQuote = config.socialProof?.quotes[0];
+  const topStats = getTemplateStats(3);
+  const topQuote = getTemplateQuote(0);
 
   return (
     <main className="min-h-screen overflow-x-hidden bg-[#f4f6f8] text-[#0c111d]">
