@@ -1,10 +1,17 @@
 import Link from "next/link";
 
 import { config } from "@/lib/config";
-import { FIGMA_REFERENCE_URL, type TemplateVariant, templateVariants } from "@/lib/template-catalog";
+import {
+  FIGMA_REFERENCE_URL,
+  GITHUB_REPO_URL,
+  getTemplatePath,
+  type TemplateVariant,
+  templateVariants
+} from "@/lib/template-catalog";
 
 interface TemplateCard extends TemplateVariant {
   previewSrc: string;
+  href: string;
 }
 
 function getTemplatePreviewSrc(slug: string): string {
@@ -25,23 +32,40 @@ function getTemplatePreviewSrc(slug: string): string {
 
 const templateCards: TemplateCard[] = templateVariants.map((variant) => ({
   ...variant,
-  previewSrc: getTemplatePreviewSrc(variant.slug)
+  previewSrc: getTemplatePreviewSrc(variant.slug),
+  href: getTemplatePath(variant.slug)
 }));
 
 export default function HomePage(): JSX.Element {
+  const figmaTemplatesCount = templateCards.filter((template) => template.slug.startsWith("figma-example-")).length;
+
   return (
     <main className="relative isolate overflow-hidden">
       <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,rgba(15,118,110,0.16),transparent_55%)]" />
       <div className="pointer-events-none absolute inset-x-0 top-56 -z-10 h-[420px] bg-[radial-gradient(circle_at_center,rgba(15,23,42,0.12),transparent_72%)]" />
 
       <section className="mx-auto w-full max-w-7xl px-6 pb-8 pt-14 md:pt-20">
-        <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">Template Gallery</p>
-        <h1 className="mt-5 max-w-3xl text-4xl font-semibold tracking-tight md:text-6xl">
-          Browse and open landing page variants
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">Template Gallery</p>
+          <a
+            href={GITHUB_REPO_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center rounded-full border border-border bg-background px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-foreground/80 transition hover:border-primary hover:text-foreground"
+          >
+            GitHub Repository
+          </a>
+        </div>
+
+        <h1 className="mt-5 max-w-4xl text-4xl font-semibold tracking-tight md:text-6xl">
+          Top {figmaTemplatesCount} validation landing pages free to use
         </h1>
         <p className="mt-5 max-w-3xl text-base text-foreground/75 md:text-lg">
-          {config.meta.title} includes multiple one-page layouts. Pick one, open it, and iterate fast from a shared
-          config.
+          Browse and open every variant instantly. Includes {figmaTemplatesCount} Figma-inspired layouts plus 2 bonus
+          starter templates.
+        </p>
+        <p className="mt-4 inline-flex rounded-full border border-primary/25 bg-primary/10 px-4 py-2 text-sm font-medium text-primary">
+          {config.meta.title}: one config, many page concepts
         </p>
         <div className="mt-8 flex flex-wrap gap-3">
           <Link
@@ -68,12 +92,9 @@ export default function HomePage(): JSX.Element {
               key={template.slug}
               className="group overflow-hidden rounded-2xl border border-border bg-background shadow-sm transition hover:-translate-y-0.5 hover:border-primary/70 hover:shadow-lg"
             >
-              <div className="relative aspect-[4/3] border-b border-border bg-muted/40">
+              <Link href={template.href} className="block aspect-[4/3] border-b border-border bg-muted/40">
                 <img src={template.previewSrc} alt={`${template.name} preview`} className="h-full w-full object-cover" />
-                <div className="absolute left-3 top-3 rounded-full bg-background/92 px-3 py-1 text-xs font-semibold text-foreground/75">
-                  /templates/{template.slug}
-                </div>
-              </div>
+              </Link>
 
               <div className="p-5">
                 <div className="flex items-start justify-between gap-3">
@@ -88,7 +109,7 @@ export default function HomePage(): JSX.Element {
                 </div>
                 <p className="mt-2 text-sm text-foreground/75">{template.description}</p>
                 <Link
-                  href={`/templates/${template.slug}`}
+                  href={template.href}
                   className="mt-5 inline-flex rounded-lg border border-border px-4 py-2 text-sm font-medium transition hover:border-primary"
                 >
                   Open template

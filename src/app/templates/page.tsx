@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import { config } from "@/lib/config";
-import { FIGMA_REFERENCE_URL, templateVariants } from "@/lib/template-catalog";
+import { FIGMA_REFERENCE_URL, getTemplatePath, templateVariants } from "@/lib/template-catalog";
 
 export default function TemplatesIndexPage(): JSX.Element {
   return (
@@ -37,7 +37,7 @@ export default function TemplatesIndexPage(): JSX.Element {
             </div>
             <p className="mt-3 text-sm text-foreground/75">{variant.description}</p>
             <Link
-              href={`/templates/${variant.slug}`}
+              href={getTemplatePath(variant.slug)}
               className="mt-6 inline-flex rounded-lg border border-border px-4 py-2 text-sm font-medium transition hover:border-primary"
             >
               Open template

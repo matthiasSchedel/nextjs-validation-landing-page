@@ -2,6 +2,7 @@ import { figmaReferenceVariants } from "./figma-reference";
 
 export const FIGMA_REFERENCE_URL =
   "https://www.figma.com/design/CyQvPi7MVFJwzs7PNy4eck/SaaS-Waitlist-Landing-Page-Examples--Community-?node-id=0-1&p=f&t=UWQO6cUIIVGnch3g-0";
+export const GITHUB_REPO_URL = "https://github.com/matthiasSchedel/nextjs-validation-landing-page";
 
 export interface TemplateVariant {
   slug: string;
@@ -35,4 +36,8 @@ export const templateVariants: TemplateVariant[] = [
 
 export function getTemplateVariant(slug: string): TemplateVariant | undefined {
   return templateVariants.find((variant) => variant.slug === slug);
+}
+
+export function getTemplatePath(slug: string): string {
+  return `/templates/${slug}`;
 }

@@ -1,42 +1,48 @@
 # nextjs-validation-landing-page
 
-Config-driven, self-hostable SaaS landing page template built with Next.js 14.
+Top 20 validation landing pages free to use, built with Next.js 14.  
+Includes 20 Figma-inspired variants plus 2 starter templates.
+
+Repository: https://github.com/matthiasSchedel/nextjs-validation-landing-page
 
 ## What it does
 
-- Renders a template gallery at `/`
-- Renders a full template list at `/templates`
-- Renders landing variants at `/templates/[slug]`
+- Renders a visual gallery at `/` with direct open links for each template
+- Renders a list view at `/templates`
+- Renders each template route at `/templates/[slug]`
 - Captures waitlist emails via Resend (`/api/waitlist`)
-- Generates framework stubs in `framework/`
 
-## Figma reference
+## Gallery screenshots
 
-Use this design source when implementing or adjusting variants:
+### Home gallery (`/`)
 
-- https://www.figma.com/design/CyQvPi7MVFJwzs7PNy4eck/SaaS-Waitlist-Landing-Page-Examples--Community-?node-id=0-1&p=f&t=UWQO6cUIIVGnch3g-0
+![Home gallery](./public/images/readme/gallery-home.png)
 
-## Current variants
+### Templates index (`/templates`)
 
-- `/templates/minimal-mobile-light` (implemented one-pager)
-- `/templates/classic-saas` (implemented multi-section template)
-- `/templates/figma-example-01` ... `/templates/figma-example-20` (all implemented)
-- `/templates/figma-example-03` ... `/templates/figma-example-08` use custom coded one-pagers
-- Remaining Figma examples render generated coded one-pagers (no screenshot-only routes)
+![Templates index](./public/images/readme/templates-index.png)
 
-Use `/` as the primary gallery, then open any `/templates/[slug]` route to iterate on a variant.
+### Example template pages
 
-## Configure content/theme
+![Minimal Mobile Light](./public/images/readme/template-minimal-mobile-light.png)
+![Classic SaaS](./public/images/readme/template-classic-saas.png)
+![Figma Example 04](./public/images/readme/template-figma-example-04.png)
 
-Edit `saas.config.ts` for product content, branding, pricing, and theme.
+## Variant routes
 
-Create local env file:
+- `/templates/minimal-mobile-light`
+- `/templates/classic-saas`
+- `/templates/figma-example-01` ... `/templates/figma-example-20`
+
+## Local development
 
 ```bash
+npm install
 cp .env.local.example .env.local
+npm run dev
 ```
 
-Required env vars for waitlist API:
+Required env vars:
 
 - `RESEND_API_KEY`
 - `RESEND_AUDIENCE_ID`
@@ -45,36 +51,23 @@ Optional:
 
 - `FAL_KEY` (for `npm run generate:images`)
 
-## Run locally
-
-```bash
-npm install
-npm run dev
-```
-
-## Build
+## Build and deploy
 
 ```bash
 npm run build
 npm run start
 ```
 
-## Deploy (Vercel)
-
 ```bash
 npm run deploy
 ```
 
-Before production deployment, add the following env vars in Vercel Project Settings:
+Before production deployment on Vercel, add:
 
 - `RESEND_API_KEY`
 - `RESEND_AUDIENCE_ID`
 - `FAL_KEY` (optional)
 
-## Add a new variant
+## License
 
-1. Add a new item in `src/lib/template-catalog.ts` with a unique `slug`.
-2. Create a component in `src/components/templates/`.
-3. Wire it in `src/app/templates/[slug]/page.tsx`.
-4. Keep lead capture posting to `/api/waitlist`.
-5. Validate visual direction against the Figma reference URL above before committing.
+MIT. See [LICENSE](./LICENSE).
